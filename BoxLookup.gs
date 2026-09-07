@@ -46,12 +46,12 @@ function runBoxLookup() {
     qcNewMap[id] = { ts: qcNewData[i][0], loc: String(qcNewData[i][2]).trim() };
   }
 
-  // Build Cold-NEW Map (Col G: ID, Col F: Table No, Col C: Timestamp)
+  // Build Cold-NEW Map (Col F: ID, Col E: Table No, Col B: Timestamp)
   const coldMap = {};
   for (let i = 1; i < coldData.length; i++) {
-    const id = String(coldData[i][6]).trim();
+    const id = String(coldData[i][5]).trim();
     if (!id || coldMap[id]) continue;
-    coldMap[id] = { ts: coldData[i][2], loc: 'Cold- ' + String(coldData[i][5]).trim() };
+    coldMap[id] = { ts: coldData[i][1], loc: 'Cold- ' + String(coldData[i][4]).trim() };
   }
 
   // Build HVC Map (Col C: ID, Hardcoded Location: 'HVC', Col A: Timestamp)
